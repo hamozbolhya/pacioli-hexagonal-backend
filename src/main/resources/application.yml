@@ -1,0 +1,44 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+
+spring:
+  application:
+    name: pacioli-cabinet-service
+
+  # Configuration de la base de données PostgreSQL
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pacioli_business_db
+    username: postgres
+    password: "hmz12@BO"
+    driver-class-name: org.postgresql.Driver
+
+  # Configuration Hibernate / JPA
+  jpa:
+    hibernate:
+      ddl-auto: update # Crée ou met à jour les tables automatiquement
+    show-sql: true     # Affiche les requêtes SQL dans la console
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  # Configuration de la Sécurité (OAuth2 Resource Server)
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # URL vers le set de clés publiques de ton serveur Node.js (Better Auth)
+          jwk-set-uri: http://localhost:3000/api/auth/jwks
+          # L'émetteur (issuer) doit correspondre exactement au champ 'iss' du JWT
+          issuer-uri: http://localhost:3000
+
+# Configuration fine des logs pour faciliter le debug
+logging:
+  level:
+    root: INFO
+    com.pacioli: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
