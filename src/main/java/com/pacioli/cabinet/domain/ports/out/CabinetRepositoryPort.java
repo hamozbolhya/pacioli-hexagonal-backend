@@ -1,6 +1,6 @@
-package com.example.paciolibackend.Cabinet.domain.ports.out;
+package com.pacioli.cabinet.domain.ports.out;
 
-import com.example.paciolibackend.Cabinet.domain.model.Cabinet;
+import com.pacioli.cabinet.domain.model.Cabinet;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,5 +1,5 @@
-package com.example.paciolibackend.Cabinet.domain.ports.in;
-import com.example.paciolibackend.Cabinet.domain.model.Cabinet;
+package com.pacioli.cabinet.domain.ports.in;
+import com.pacioli.cabinet.domain.model.Cabinet;
 
 public interface CreateCabinetUseCase {
     Cabinet execute(Cabinet cabinet);

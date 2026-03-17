@@ -1,7 +1,7 @@
 server:
   port: 8080
-  error:
-    include-message: always
+  servlet:
+    context-path: /api
 
 spring:
   application:
@@ -30,9 +30,12 @@ spring:
       resourceserver:
         jwt:
           # URL vers le set de clés publiques de ton serveur Node.js (Better Auth)
-          jwk-set-uri: http://localhost:3000/api/auth/jwks
+          jwk-set-uri: http://localhost:3000/api/auth/jwks.json
           # L'émetteur (issuer) doit correspondre exactement au champ 'iss' du JWT
           issuer-uri: http://localhost:3000
+  web:
+    error:
+      include-message: always
 
 # Configuration fine des logs pour faciliter le debug
 logging:
